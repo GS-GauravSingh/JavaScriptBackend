@@ -1,0 +1,16 @@
+{
+  "name": "06_major_project",
+  "version": "1.0.0",
+  "description": "backend project - learning backend from chai aur code youtube channel.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Gaurav Singh",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3"
+  }
+}
