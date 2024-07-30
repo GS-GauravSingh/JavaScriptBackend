@@ -10,7 +10,13 @@ import connectDB from "./db/db.js"
 // Place this after the import statements: Because we want our environment variables to load as soon as 
 dotenv.config();
 
+const port = process.env.PORT || 8000;
 const app = express();
+
+// Root Route
+app.get("/", (req, res) => {
+    res.send("Server is Running.")
+})
 
 /*
 First Approach: Database Connection.
@@ -35,14 +41,16 @@ First Approach: Database Connection.
 */
 
 // Second Approach: Dtabase Connection.
-connectDB();
+connectDB()
+    .then(() => {
+        // Start the server
+        app.listen(port, () => {
+            console.log(`Server is running on port: ${port}.`);
+        })
 
-// Root Route
-app.get("/", (req, res) =>{
-    res.send("Server is Running.")
-})
+    })
+    .catch((error) => {
+        console.log("!! MongoDB connection failed !!", error);
+    })
 
-// Start the server
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port: ${process.env.PORT}.`);
-})
+

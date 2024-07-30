@@ -34,3 +34,4 @@ There are two ways to connect database with backend code:
 1. It may possible that when connecting to database, some error may occured so it is important to handle these unwanted errors. So, always wrap you database connection code into a try/catch block or used promise to handle errors if occured.
 
 2. "Always remember database is in another continent", meaning it takes some time to make connection with database, so always use make database connection asynchronously (use async/await).
+
